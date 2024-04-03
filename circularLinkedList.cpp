@@ -51,46 +51,65 @@ void insertAtTail(node *&head, int val)
     n->next = head;
 }
 
-void deletionAtTail(node* &head){
-    node* temp = head;
-    while (temp->next->next != head){
+void deletionAtTail(node *&head)
+{
+    node *temp = head;
+    while (temp->next->next != head)
+    {
         temp = temp->next;
     }
-    node* toDelete = temp->next;
-    delete(toDelete);
+    node *toDelete = temp->next;
+    delete (toDelete);
     temp->next = head;
-    
-    
 }
 
-void deletionAtHead(node* &head){
-    node* temp = head;
-    while(temp->next!=head){
+void deletionAtHead(node *&head)
+{
+    node *temp = head;
+    while (temp->next != head)
+    {
         temp = temp->next;
     }
-    node* todelete = temp->next;
+    node *todelete = temp->next;
     head = temp->next->next;
     temp->next = head;
-    delete(todelete);
+    delete (todelete);
 }
 
-void deletionAtPosition(node* &head, int pos){
-    node* temp = head;
-    if(pos==0){
+void deletionAtPosition(node *&head, int pos)
+{
+    node *temp = head;
+    if (pos == 0)
+    {
         deletionAtHead(head);
     }
     int count = 0;
-    while(count!=pos-1){
+    while (count != pos - 1)
+    {
         temp = temp->next;
         count++;
     }
 
-    node * todelete = temp->next;
+    node *todelete = temp->next;
     temp->next = temp->next->next;
 
     delete todelete;
+}
 
+void searching(node *&head, int val)
+{
+    node *temp = head;
 
+    do
+    {
+        if (temp->data == val)
+        {
+            cout << "Element found." << endl;
+        }
+        temp = temp->next;
+    } while (temp != head);
+
+    return;
 }
 
 void display(node *head)
@@ -107,15 +126,15 @@ void display(node *head)
 int main()
 {
     node *head = nullptr;
-    // Insertion at tail 
-    cout<<"Insertion at head: "<<endl;
+    // Insertion at tail
+    cout << "Insertion at head: " << endl;
     insertAtTail(head, 1);
     insertAtTail(head, 2);
     insertAtTail(head, 3);
     insertAtTail(head, 4);
     display(head);
     // Insertion at head
-    cout<<"Insertion at head: "<<endl;
+    cout << "Insertion at head: " << endl;
     insertAtHead(head, 5);
     display(head);
     // Deletion at tail
@@ -126,10 +145,13 @@ int main()
     // deletionAtHead(head);
     // display(head);
 
-    // Deletion at given position 
-    cout<<"Deletion at given postion: "<<endl;
-    deletionAtPosition(head,3);
-    display(head);
+    // Deletion at given position
+    // cout<<"Deletion at given postion: "<<endl;
+    // deletionAtPosition(head,3);
+    // display(head);
+
+    // Seaching the element
+    searching(head, 4);
 
     return 0;
 }
