@@ -43,39 +43,39 @@ void insertionAtTail(node *&head, int val)
     n->prev = temp;
 }
 
-void deletionAtTail(node* &head)
+void deletionAtTail(node *&head)
 {
-    node* temp = head;
-    while(temp->next->next!=nullptr)
+    node *temp = head;
+    while (temp->next->next != nullptr)
     {
         temp = temp->next;
     }
-    node* todelete = temp->next;
+    node *todelete = temp->next;
     temp->next = nullptr;
     delete todelete;
 }
 
-void deletionAtHead(node* &head)
+void deletionAtHead(node *&head)
 {
-    node* temp = head;
+    node *temp = head;
     head->next->prev = nullptr;
     head = head->next;
 }
 
-void deletionAtPostion(node* &head, int pos)
+void deletionAtPostion(node *&head, int pos)
 {
-    node* temp = head;
+    node *temp = head;
     int count = 0;
-    while(count!=pos-1 && temp!=nullptr){
+    while (count != pos - 1 && temp != nullptr)
+    {
         temp = temp->next;
         count++;
     }
-    node* todelete = temp->next;
+    node *todelete = temp->next;
     temp->next = temp->next->next;
     temp->next->next->prev = temp;
 
     delete todelete;
-    
 }
 
 void display(node *head)
@@ -93,7 +93,7 @@ int main()
 {
 
     node *head = nullptr;
-    cout<<"Insertion at Tail:"<<endl;
+    cout << "Insertion at Tail:" << endl;
     insertionAtTail(head, 1);
     insertionAtTail(head, 2);
     insertionAtTail(head, 3);
@@ -103,20 +103,20 @@ int main()
     insertionAtTail(head, 7);
     display(head);
 
-    cout<<"Insertion at Head: "<<endl;
+    cout << "Insertion at Head: " << endl;
     insertionAtHead(head, 8);
     display(head);
 
-    cout<<"Deletion at Tail: "<<endl;
+    cout << "Deletion at Tail: " << endl;
     deletionAtTail(head);
     display(head);
 
-    cout<<"Deletion at Head: "<<endl;
+    cout << "Deletion at Head: " << endl;
     // deletionAtHead(head);
     // display(head);
 
-    cout<<"Deletion at given Position: "<<endl;
-    deletionAtPostion(head,4);
+    cout << "Deletion at given Position: " << endl;
+    deletionAtPostion(head, 4);
     display(head);
 
     return 0;
