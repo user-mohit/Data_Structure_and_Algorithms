@@ -17,15 +17,8 @@ void selectionSort(int arr[],int size){
     }
 }
 int main(){
-    int n;
-    cout<<"Enter the size of array: ";
-    cin>>n;
-    int arr[n];
-    
-    for(int i=0; i<n; i++){
-        cout<<"Enter the "<<i<<" element of the array: ";
-        cin>>arr[i];
-    }
+    int arr[] = {78,15,89,45,48,0};
+    int n = 6;
 
     selectionSort(arr,n);
 
