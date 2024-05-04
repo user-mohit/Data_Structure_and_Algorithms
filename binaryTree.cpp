@@ -15,37 +15,37 @@ struct Node
     }
 };
 
-void preorder(struct Node* root)
+void preorder(struct Node *root)
 {
-    if(root == nullptr)
+    if (root == nullptr)
     {
         return;
     }
-    cout<<root->data<<" ";
+    cout << root->data << " ";
     preorder(root->left);
     preorder(root->right);
 }
 
-void inorder(struct Node* root)
+void inorder(struct Node *root)
 {
-    if(root == nullptr)
+    if (root == nullptr)
     {
         return;
     }
     inorder(root->left);
-    cout<<root->data<<" ";
+    cout << root->data << " ";
     inorder(root->right);
 }
 
-void postorder(struct Node* root)
+void postorder(struct Node *root)
 {
-    if(root == nullptr)
+    if (root == nullptr)
     {
         return;
     }
     postorder(root->left);
     postorder(root->right);
-    cout<<root->data<<" ";
+    cout << root->data << " ";
 }
 int main()
 {
@@ -58,9 +58,9 @@ int main()
     root->right->right = new Node(7);
 
     preorder(root);
-    cout<<endl;
+    cout << endl;
     inorder(root);
-    cout<<endl;
+    cout << endl;
     postorder(root);
 
     return 0;
