@@ -22,9 +22,9 @@ Node *insert(Node *root, int val)
     {
         return new Node(val);
     }
-    if(val == root->data)
+    if (val == root->data)
     {
-        cout<<"Can not insert "<<val<<" already in BST"<<endl;
+        cout << "Can not insert " << val << " already in BST" << endl;
     }
     if (root->data > val)
     {
@@ -72,7 +72,7 @@ int main()
     Node *n = search(root, 90);
     if (n != NULL)
     {
-        cout <<"Found : "<< n->data << endl;
+        cout << "Found : " << n->data << endl;
     }
     else
     {
