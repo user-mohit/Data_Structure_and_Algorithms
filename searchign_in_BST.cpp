@@ -22,6 +22,10 @@ Node *insert(Node *root, int val)
     {
         return new Node(val);
     }
+    if(val == root->data)
+    {
+        cout<<"Can not insert "<<val<<" already in BST"<<endl;
+    }
     if (root->data > val)
     {
         root->left = insert(root->left, val);
@@ -57,6 +61,7 @@ int main()
 {
     Node *root = nullptr;
     root = insert(root, 50);
+    insert(root, 30);
     insert(root, 30);
     insert(root, 70);
     insert(root, 20);
